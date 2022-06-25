@@ -8,6 +8,7 @@ alias btctl='bluetoothctl'
 alias cp='cp -iv'
 alias df='df -h'
 alias e='emerge'
+alias ffva='ffmpeg -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device /dev/dri/renderD128'
 alias g='git'
 alias info="info --vi-keys"
 alias la='ls -la --human-readable'
@@ -18,11 +19,10 @@ alias nya='doas'
 alias p='python'
 alias rm='trash'
 alias se='doas emerge'
-alias ssh='TERM="xterm-256color" ssh'
 alias sv='doasedit'
-alias v='nvim'
+alias uwu='doas'
 alias vim='nvim'
-alias ffva='ffmpeg -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device /dev/dri/renderD128'
+alias v='nvim'
 
 # use z autojumping
 export ZSHZ_CASE=smart
@@ -57,15 +57,8 @@ dmpv() {
 	disown
 }
 
-# run mpd if not running
-ncmpcpp() {
-	pidof mpd >/dev/null || mpd.sh >/dev/null || true
-	command ncmpcpp
-}
-
 # doas edit
 # taken from https://github.com/AN3223/scripts/blob/master/doasedit
-
 doasedit() {
 	help() {
 		cat - >&2 <<EOF
@@ -84,7 +77,7 @@ EOF
 
 	case "$1" in --help | -h)
 		help
-		exit 0
+		return 0
 		;;
 	esac
 
