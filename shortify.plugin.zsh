@@ -11,18 +11,19 @@ alias e='emerge'
 alias ffva='ffmpeg -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device /dev/dri/renderD128'
 alias g='git'
 alias info="info --vi-keys"
+alias l='ls'
 alias la='ls -la --human-readable'
 alias ll='ls -l --human-readable'
-alias l='ls'
 alias mv='mv -iv'
 alias nya='doas'
 alias p='python'
 alias rm='trash'
+alias s='kitten ssh'
 alias se='doas emerge'
 alias sv='doasedit'
 alias uwu='doas'
-alias vim='nvim'
 alias v='nvim'
+alias vim='nvim'
 
 # use z autojumping
 export ZSHZ_CASE=smart
