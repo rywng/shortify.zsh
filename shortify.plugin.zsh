@@ -10,6 +10,7 @@ alias df='df -h'
 alias e='emerge'
 alias g='git'
 alias info="info --vi-keys"
+alias ls="ls --color=auto --hyperlink=auto"
 alias l='ls'
 alias la='ls -la --human-readable'
 alias ll='ls -l --human-readable'
