@@ -9,11 +9,13 @@ alias cp='cp -iv'
 alias df='df -h'
 alias e='emerge'
 alias g='git'
+alias ga="git add"
+alias gst="git status"
 alias info="info --vi-keys"
-alias ls="ls --color=auto --hyperlink=auto"
 alias l='ls'
 alias la='ls -la --human-readable'
 alias ll='ls -l --human-readable'
+alias ls="ls --color=auto --hyperlink=auto"
 alias mv='mv -iv'
 alias p='python'
 alias rm='trash'
@@ -26,7 +28,7 @@ alias v='nvim'
 export ZSHZ_CASE=smart
 export ZSHZ_DATA="$HOME/.cache/z"
 zz() {
-    cd $(z -l $* | fzf | awk '{print $2}')
+    pushd $(z -l $* | fzf | awk '{print $2}')
 }
 alias zc="z -c"
 
