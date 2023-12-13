@@ -4,6 +4,7 @@
 # Creates alias to simplify commands
 
 alias b='bat -n'
+alias bp='bat -p'
 alias btctl='bluetoothctl'
 alias cp='cp -iv'
 alias df='df -h'
