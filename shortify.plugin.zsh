@@ -60,3 +60,9 @@ up()
         cd $1
     fi
 }
+
+# Highlight help messages https://github.com/sharkdp/bat#highlighting---help-messages
+help() {
+    "$@" --help 2>&1 | bat --plain --language=help
+}
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
