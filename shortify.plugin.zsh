@@ -29,7 +29,8 @@ alias v='nvim'
 export ZSHZ_CASE=smart
 export ZSHZ_DATA="$HOME/.cache/z"
 zz() {
-    pushd $(z -l $* | fzf | awk '{print $2}')
+    file=$(z -l $* | fzf --tac --no-multi | cut -d " " -f "2-" | xargs)
+    pushd $file
 }
 alias zc="z -c"
 
