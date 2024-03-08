@@ -10,20 +10,25 @@ alias cp='cp -iv'
 alias df='df -h'
 alias e='emerge'
 alias g='git'
-alias ga="git add"
-alias gst="git status"
-alias info="info --vi-keys"
+alias ga='git add'
+alias gst='git status'
+alias info='info --vi-keys'
 alias l='ls'
 alias la='ls -la --human-readable'
 alias ll='ls -l --human-readable'
-alias ls="ls --color=auto --hyperlink=auto"
+alias ls='ls --color=auto --hyperlink=auto'
 alias mv='mv -iv'
 alias p='python'
-alias rm='trash'
+alias po='popd'
 alias s='kitten ssh'
 alias se='sudo emerge'
 alias sv='sudoedit'
 alias v='nvim'
+
+# use trash in place for rm
+if [ command -v trash &> /dev/null ]; then
+	alias rm='trash'
+fi
 
 # use z autojumping
 export ZSHZ_CASE=smart
