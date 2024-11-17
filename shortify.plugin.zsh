@@ -20,7 +20,7 @@ alias p='python'
 alias po='popd'
 alias v='nvim'
 
-if [[ $(uname) -eq "Linux"]]; then
+if [ $(uname) = "Linux" ]; then
 	alias cp='cp -iv --reflink=auto'
 	alias e='emerge'
 	alias la='ls -la --human-readable'
