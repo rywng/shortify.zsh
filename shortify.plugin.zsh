@@ -6,25 +6,35 @@
 alias b='bat -n'
 alias bp='bat -p'
 alias btctl='bluetoothctl'
-alias cp='cp -iv'
 alias df='df -h'
-alias e='emerge'
 alias g='git'
 alias ga='git add'
 alias gst='git status'
+alias h='fc -l'
 alias ic='kitten icat'
-alias info='info --vi-keys'
+alias j=jobs
 alias l='ls'
-alias la='ls -la --human-readable'
-alias ll='ls -l --human-readable'
-alias ls='ls --color=auto --hyperlink=auto'
+alias m="$PAGER"
 alias mv='mv -iv'
 alias p='python'
 alias po='popd'
-alias s='kitten ssh'
-alias se='sudo emerge'
-alias sv='sudoedit'
 alias v='nvim'
+
+if [[ $(uname) -eq "Linux"]]; then
+	alias cp='cp -iv --reflink=auto'
+	alias e='emerge'
+	alias la='ls -la --human-readable'
+	alias ll='ls -l --human-readable'
+	alias ls='ls --color=auto --hyperlink=auto'
+	alias s='kitten ssh'
+	alias se='sudo emerge'
+	alias sv='sudoedit'
+else # Assume BSD userland
+	alias cp='cp -iv'
+	alias la="ls -lao"
+	alias ll="ls -l"
+	alias ls="ls -FG"
+fi
 
 # use trash in place for rm
 if [ command -v trash &> /dev/null ]; then
