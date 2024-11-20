@@ -29,11 +29,17 @@ if [ $(uname) = "Linux" ]; then
 	alias s='kitten ssh'
 	alias se='sudo emerge'
 	alias sv='sudoedit'
-else # Assume BSD userland
+else # Assume BSD userland bacause I don't have anything else
 	alias cp='cp -iv'
 	alias la="ls -lao"
 	alias ll="ls -l"
 	alias ls="ls -FG"
+	# BSD specific functions
+	scd ()
+	{
+		# cd into the port tree / source code for item
+		pushd `whereis -sq $1 || echo .`
+	}
 fi
 
 # use trash in place for rm
