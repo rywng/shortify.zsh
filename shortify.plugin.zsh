@@ -18,6 +18,7 @@ alias m="$PAGER"
 alias mv='mv -iv'
 alias p='python'
 alias po='popd'
+alias t='bsdtar'
 alias v='nvim'
 
 if [ $(uname) = "Linux" ]; then
@@ -29,6 +30,10 @@ if [ $(uname) = "Linux" ]; then
 	alias s='kitten ssh'
 	alias se='sudo emerge'
 	alias sv='sudoedit'
+	scd () 
+	{
+		pushd $(qwhich -d $1 || echo . )
+	}
 else # Assume BSD userland bacause I don't have anything else
 	alias cp='cp -iv'
 	alias la="ls -lao"
@@ -38,13 +43,8 @@ else # Assume BSD userland bacause I don't have anything else
 	scd ()
 	{
 		# cd into the port tree / source code for item
-		pushd `whereis -sq $1 || echo .`
+		pushd $( whereis -sq $1 || echo . )
 	}
-fi
-
-# use trash in place for rm
-if [ command -v trash &> /dev/null ]; then
-	alias rm='trash'
 fi
 
 # use z autojumping
