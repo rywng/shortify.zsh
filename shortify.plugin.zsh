@@ -26,7 +26,7 @@ if [ $(uname) = "Linux" ]; then
 	alias e='emerge'
 	alias la='ls -la --human-readable'
 	alias ll='ls -l --human-readable'
-	alias ls='ls --color=auto --hyperlink=auto'
+	alias ls='ls -F --color=auto --hyperlink=auto'
 	alias s='kitten ssh'
 	alias se='sudo emerge'
 	alias sv='sudoedit'
