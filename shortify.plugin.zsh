@@ -36,8 +36,8 @@ if [ $(uname) = "Linux" ]; then
 	}
 else # Assume BSD userland bacause I don't have anything else
 	alias cp='cp -iv'
-	alias la="ls -lao"
-	alias ll="ls -l"
+	alias la="ls -lhao"
+	alias ll="ls -lh"
 	alias ls="ls -FG"
 	# BSD specific functions
 	scd ()
