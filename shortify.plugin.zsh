@@ -18,6 +18,7 @@ alias m="$PAGER"
 alias mv='mv -iv'
 alias p='python'
 alias po='popd'
+alias s='ssh'
 alias t='bsdtar'
 alias v='nvim'
 
@@ -27,7 +28,6 @@ if [ $(uname) = "Linux" ]; then
 	alias la='ls -la --human-readable'
 	alias ll='ls -l --human-readable'
 	alias ls='ls -F --color=auto --hyperlink=auto'
-	alias s='kitten ssh'
 	alias se='sudo emerge'
 	alias sv='sudoedit'
 	scd () 
