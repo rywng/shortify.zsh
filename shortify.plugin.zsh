@@ -90,3 +90,33 @@ help() {
     "$@" --help 2>&1 | bat --plain --language=help
 }
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+# OSC support
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+
+function precmd-osc-prompt-start() {
+    if ! builtin zle; then
+    	# End of output
+        print -n "\e]133;D\e\\"
+    fi
+
+    # Prompt start
+    print -Pn "\e]133;A\e\\"
+}
+
+function preexec-osc-output-start() {
+    print -n "\e]133;C\e\\"
+}
+
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+add-zsh-hook -Uz precmd precmd-osc-prompt-start
+add-zsh-hook -Uz preexec preexec-osc-output-start
